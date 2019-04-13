@@ -18,6 +18,9 @@ class TempTracker(object):
         Records a new temperature.
 
         :param temp: The temperature to insert.
+        :raises: `ValueError` if the temperature is not in the range of
+            `self.coldest_temp` to `self.hottest_temp` inclusive, or if
+            temp is not an `int`.
         """
 
         if not isinstance(temp, int):
@@ -65,6 +68,7 @@ class TempTracker(object):
         Get the mean temperature of all recorded temperatures.
 
         :returns: The mean of all temperatures.
+        :raises: `ValueError` if there are no recorded temperatures.
         """
 
         if len(self._temperatures) == 0:
